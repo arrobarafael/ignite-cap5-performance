@@ -46,3 +46,8 @@ export default function Home() {
  * 3. Re-renders with same props 
  * 4. Medium to big size components
  */
+
+/**
+ * UseMemo / UseCallback
+ * 
+ */

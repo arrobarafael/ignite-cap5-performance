@@ -50,4 +50,7 @@ export default function Home() {
 /**
  * UseMemo / UseCallback
  * 
+ * Quando utilizar useMemo
+ * 1. Cálculos pesados
+ * 2. Igualdade referencial (quando a gente repassa aquela informação a um componente filho / Impede alocação de novo espaço na memória)
  */

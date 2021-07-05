@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react"
+import { FormEvent, useCallback, useState } from "react"
 import { SearchResults } from "../components/SearchResults";
 
 export default function Home() {
@@ -18,6 +18,12 @@ export default function Home() {
     setResults(data)
   }
 
+  const addToWishList = useCallback(
+    async (id: number) => {
+      console.log(id);
+    },[])
+
+
   return (
     <div >
       <h1>Search</h1>
@@ -27,7 +33,7 @@ export default function Home() {
         <button type="submit">Buscar</button>
       </form>
 
-      <SearchResults results = {results} />
+      <SearchResults results = {results} onAddToWishList = {addToWishList}/>
     </div>
   )
 }
@@ -53,4 +59,9 @@ export default function Home() {
  * Quando utilizar useMemo
  * 1. Cálculos pesados
  * 2. Igualdade referencial (quando a gente repassa aquela informação a um componente filho / Impede alocação de novo espaço na memória)
+ * 
+ * Quando utilizar useCallback
+ * 1. Apenas para funções, quando passadas para componentes filhos. A comparação de igualdade referencial geraria uma renderização de componentes em cascata, apesar da função
+ * não ter sofrido alterações.
+ * 
  */
